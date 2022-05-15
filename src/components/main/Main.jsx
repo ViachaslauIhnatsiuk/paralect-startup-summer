@@ -5,13 +5,13 @@ import { Repositories } from './repositories/Repositories';
 import { Pagination } from './pagination/Pagination';
 
 const Main = () => {
-  return (
-    <div className={s.wrapper}>
-      <User />
-      <Repositories />
-      <Pagination />
-    </div>
-  )
+	return (
+		<div className={s.wrapper}>
+			<User />
+			<Repositories />
+			<Pagination />
+		</div>
+	)
 }
 
 export { Main };

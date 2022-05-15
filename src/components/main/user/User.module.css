@@ -1,0 +1,41 @@
+.wrapper {
+	max-width: 292px;
+	padding-top: 12px;
+}
+
+.avatar {
+	margin-bottom: 28px;
+}
+
+.username {
+	font-size: 26px;
+	font-weight: 600;
+	margin-bottom: 12px;
+}
+
+.nickname {
+	font-size: 18px;
+	font-weight: 400;
+	color: #0064EB;
+	margin-bottom: 25px;
+}
+
+.follow {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.followers,
+.following {
+	font-size: 16px;
+	padding-left: 32px;
+}
+
+.followers {
+	background: url('../../../assets/followers.svg') 0 center no-repeat;
+}
+
+.following {
+	background: url('../../../assets/following.svg') 0 center no-repeat;
+}
