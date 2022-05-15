@@ -1,29 +1,29 @@
-.wrapper {
-	max-width: 292px;
+.user {
+	min-width: 292px;
 	padding-top: 12px;
 }
 
 .avatar {
-	margin-bottom: 28px;
+	margin-bottom: 25px;
 }
 
 .username {
 	font-size: 26px;
 	font-weight: 600;
-	margin-bottom: 12px;
+	margin-bottom: 15px;
 }
 
 .nickname {
 	font-size: 18px;
 	font-weight: 400;
 	color: #0064EB;
-	margin-bottom: 25px;
+	margin-bottom: 34px;
 }
 
 .follow {
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
+	column-gap: 16px;
 }
 
 .followers,
@@ -33,9 +33,9 @@
 }
 
 .followers {
-	background: url('../../../assets/followers.svg') 0 center no-repeat;
+	background: url('../../../assets/icons/followers.svg') 0 center no-repeat;
 }
 
 .following {
-	background: url('../../../assets/following.svg') 0 center no-repeat;
+	background: url('../../../assets/icons/following.svg') 0 center no-repeat;
 }

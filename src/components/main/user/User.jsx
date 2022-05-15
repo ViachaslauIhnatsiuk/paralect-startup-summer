@@ -4,7 +4,7 @@ import avatar from '../../../assets/Dan.png';
 
 const User = () => {
 	return (
-		<div className={s.wrapper}>
+		<div className={s.user}>
 			<img
 				src={avatar}
 				className={s.avatar}
