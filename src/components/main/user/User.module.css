@@ -18,10 +18,12 @@
 }
 
 .nickname {
+	display: block;
 	font-size: 18px;
 	font-weight: 400;
 	color: #0064EB;
 	margin-bottom: 34px;
+	cursor: pointer;
 }
 
 .follow {
