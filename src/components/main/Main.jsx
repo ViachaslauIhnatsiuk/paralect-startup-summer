@@ -3,11 +3,11 @@ import s from './Main.module.css';
 import { User } from './user/User';
 import { Repositories } from './repositories/Repositories';
 
-const Main = () => {
+const Main = ({ user, repos }) => {
 	return (
 		<div className={s.main}>
-			<User />
-			<Repositories />
+			<User user={user} />
+			<Repositories repos={repos} />
 		</div>
 	)
 }
