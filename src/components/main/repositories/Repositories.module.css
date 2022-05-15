@@ -1,0 +1,9 @@
+.repositories {
+	flex: 1 1 100%;
+}
+
+.title {
+	font-size: 32px;
+	font-weight: 600;
+	margin-bottom: 29px;
+}

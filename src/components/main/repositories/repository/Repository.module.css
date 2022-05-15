@@ -1,0 +1,18 @@
+.repository {
+	width: 100%;
+	min-height: 112px;
+	padding: 24px 32px;
+	background-color: #fff;
+	margin-bottom: 24px;
+}
+
+.title {
+	font-size: 24px;
+	font-weight: 500;
+	color: #0064EB;
+	margin-bottom: 16px;
+}
+
+.description {
+	font-size: 16px;
+}
