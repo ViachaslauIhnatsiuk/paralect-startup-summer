@@ -18,3 +18,14 @@
 	text-align: center;
 	color: #808080;
 }
+
+@media (max-width: 767.98px) {
+	.icon {
+		width: 52px;
+		height: 60px;
+		margin: -300px 0 20px;
+	}
+	.message {
+		font-size: 18px;
+	}
+}

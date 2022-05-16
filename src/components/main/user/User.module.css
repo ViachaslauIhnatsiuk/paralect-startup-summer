@@ -83,9 +83,15 @@
 	}
 	.username {
 		line-height: 100%;
+		font-size: 18px;
 	}
 	.nickname {
 		margin-bottom: 20px;
+		font-size: 14px;
+	}
+	.followers,
+	.following {
+	font-size: 13px;
 	}
 }
 

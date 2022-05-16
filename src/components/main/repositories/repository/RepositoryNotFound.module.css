@@ -14,3 +14,14 @@
 	font-size: 22px;
 	color: #808080;
 }
+
+@media (max-width: 767.98px) {
+	.icon {
+		width: 60px;
+		height: 50px;
+		margin: 20px 0;
+	}
+	.message {
+		font-size: 18px;
+	}
+}
