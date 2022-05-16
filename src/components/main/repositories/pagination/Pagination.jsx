@@ -20,18 +20,15 @@ const Pagination = ({ repos, currentPage, setCurrentPage }) => {
 		const dots = '...';
 		const leftDots = '... ';
 		const rightDots = ' ...';
-		if (pagesNumber < 6) {
+		if (pagesNumber < 5) {
 			pages = [...pages]
-		} else if (currentPage >= 1 && currentPage <= 3) {
-			pages = [1, 2, 3, 4, dots, pages.length]
-		} else if (currentPage === 4) {
-			const slice = pages.slice(0, 5)
-			pages = [...slice, dots, pages.length]
-		} else if (currentPage > 4 && currentPage < pages.length - 2) {
+		} else if (currentPage >= 1 && currentPage <= 2) {
+			pages = [1, 2, 3, dots, pages.length]
+		} else if (currentPage > 2 && currentPage < pages.length - 2) {
 			const slice = pages.slice(currentPage - 2, currentPage + 1)
 			pages = ([1, leftDots, ...slice, rightDots, pages.length])
 		} else if (currentPage > pages.length - 3) {
-			const slice = pages.slice(pages.length - 4)
+			const slice = pages.slice(pages.length - 3)
 			pages = ([1, leftDots, ...slice])
 		} else if (currentPage === dots) {
 			setCurrentPage(pageNumbers[pageNumbers.length - 3] + 1)
@@ -42,18 +39,20 @@ const Pagination = ({ repos, currentPage, setCurrentPage }) => {
 		}
 
 		setPageNumbers(pages)
-	}, [currentPage])
+	}, [currentPage, repos])
+
+	const pagesInterval = `${(currentPage * 4 - 3)} - ${currentPage * 4 < repos.length ? currentPage * 4 : repos.length} of ${repos.length} items`;
 
 	return (
 		<div className={s.pagination}>
-			<div className={s.items}>{`${(currentPage * 4 - 3)} - ${currentPage * 4 < repos.length ? currentPage * 4 : repos.length} of ${repos.length} items`}</div>
+			<div className={s.items}>{pagesInterval}</div>
 			<div className={s.main}>
 				<img onClick={() =>
 					currentPage > 1
 						? setCurrentPage(currentPage - 1)
 						: null}
 					src={currentPage > 1 ? left_active : left_inactive}
-					className={s.previous}
+					className={currentPage > 1 ? s.previous : null}
 					alt="left arrow"
 				/>
 				{pageNumbers.map((page, index) => <div
@@ -68,7 +67,7 @@ const Pagination = ({ repos, currentPage, setCurrentPage }) => {
 						? setCurrentPage(currentPage + 1)
 						: null}
 					src={currentPage < pagesNumber ? right_active : right_inactive}
-					className={s.next}
+					className={currentPage < pagesNumber ? s.next : null}
 					alt="right arrow"
 				/>
 			</div>
