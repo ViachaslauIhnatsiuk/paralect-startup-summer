@@ -3,7 +3,7 @@ import s from './Header.module.css';
 import logo from '../../assets/icons/logo.svg';
 
 
-const Header = ({ setUser, setRepos, repos }) => {
+const Header = ({ setUser, setRepos }) => {
 	const [value, setValue] = useState('');
 
 	const fetchParams = {
@@ -25,8 +25,6 @@ const Header = ({ setUser, setRepos, repos }) => {
 				.catch(error => console.log(error))
 		}
 	}
-
-	console.log(repos)
 
 	return (
 		<div className={s.header}>
