@@ -8,26 +8,27 @@ import { MainNotFound } from './components/main/pages/MainNotFound';
 const App = () => {
 	const [user, setUser] = useState('');
 	const [repos, setRepos] = useState([]);
+	const [loader, setLoader] = useState(false);
 
 	if (user === '') {
 		return (
 			<div className={s.wrapper}>
-				<Header setUser={setUser} setRepos={setRepos} repos={repos} />
+				<Header setUser={setUser} setRepos={setRepos} repos={repos} setLoader={setLoader} />
 				<MainStart />
 			</div>
 		);
 	} else if (user.message) {
 		return (
 			<div className={s.wrapper}>
-				<Header setUser={setUser} setRepos={setRepos} repos={repos} />
+				<Header setUser={setUser} setRepos={setRepos} repos={repos} setLoader={setLoader} />
 				<MainNotFound />
 			</div>
 		);
 	} else {
 		return (
 			<div className={s.wrapper}>
-				<Header setUser={setUser} setRepos={setRepos} repos={repos} />
-				<Main user={user} repos={repos} />
+				<Header setUser={setUser} setRepos={setRepos} repos={repos} setLoader={setLoader} />
+				<Main user={user} repos={repos} loader={loader} />
 			</div>
 		);
 	}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import s from './Header.module.css';
 import logo from '../../assets/icons/logo.svg';
 
-const Header = ({ setUser, setRepos }) => {
+const Header = ({ setUser, setRepos, setLoader }) => {
 	const [value, setValue] = useState('');
 
 	const fetchParams = {
@@ -14,16 +14,19 @@ const Header = ({ setUser, setRepos }) => {
 
 	const search = (e) => {
 		if (e.key === 'Enter') {
+			setLoader(true);
 			fetch(`https://api.github.com/users/${value}`, fetchParams)
 				.then(response => response.json())
 				.then(response => setUser(response))
+				// .then(() => setLoader(false))
 				.catch(error => console.log(error))
 			fetch(`https://api.github.com/users/${value}/repos?per_page=100&page=1`, fetchParams)
 				.then(response => response.json())
 				.then(response => setRepos([...response]))
+				.then(() => setLoader(false))
 				.catch(error => console.log(error))
 		}
-	}
+	};
 
 	return (
 		<div className={s.header}>
