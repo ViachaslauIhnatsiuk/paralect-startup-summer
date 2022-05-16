@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import s from './Header.module.css';
 import logo from '../../assets/icons/logo.svg';
 
-
 const Header = ({ setUser, setRepos }) => {
 	const [value, setValue] = useState('');
 

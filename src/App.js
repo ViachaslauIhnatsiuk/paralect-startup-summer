@@ -9,16 +9,7 @@ const App = () => {
 	const [user, setUser] = useState('');
 	const [repos, setRepos] = useState([]);
 
-	console.log(user.message)
-
-	if (repos.length) {
-		return (
-			<div className={s.wrapper}>
-				<Header setUser={setUser} setRepos={setRepos} repos={repos} />
-				<Main user={user} repos={repos} />
-			</div>
-		);
-	} else if (!repos.length) {
+	if (user === '') {
 		return (
 			<div className={s.wrapper}>
 				<Header setUser={setUser} setRepos={setRepos} repos={repos} />
@@ -30,6 +21,13 @@ const App = () => {
 			<div className={s.wrapper}>
 				<Header setUser={setUser} setRepos={setRepos} repos={repos} />
 				<MainNotFound />
+			</div>
+		);
+	} else {
+		return (
+			<div className={s.wrapper}>
+				<Header setUser={setUser} setRepos={setRepos} repos={repos} />
+				<Main user={user} repos={repos} />
 			</div>
 		);
 	}

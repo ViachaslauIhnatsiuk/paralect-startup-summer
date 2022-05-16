@@ -15,7 +15,6 @@ const Pagination = ({ repos, currentPage, setCurrentPage }) => {
 
 	const [pageNumbers, setPageNumbers] = useState([]);
 
-
 	useEffect(() => {
 		const dots = '...';
 		const leftDots = '... ';

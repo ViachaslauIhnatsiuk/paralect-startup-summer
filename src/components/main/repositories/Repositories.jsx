@@ -24,7 +24,9 @@ const Repositories = ({ repos }) => {
 			</div>
 		)
 	} else {
-		<RepositoryNotFound />
+		return (
+			<RepositoryNotFound />
+		)
 	}
 }
 
