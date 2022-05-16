@@ -7,7 +7,7 @@ const MainNotFound = () => {
 		<div className={s.main}>
 			<img
 				src={user}
-				className={s.user}
+				className={s.icon}
 				alt="user not found"
 			/>
 			<p className={s.message}>User not found</p>

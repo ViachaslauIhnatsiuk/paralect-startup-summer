@@ -7,8 +7,8 @@ const MainStart = () => {
 		<div className={s.main}>
 			<img
 				src={search}
-				className={s.search}
-				alt="start search"
+				className={s.icon}
+				alt="start search icon"
 			/>
 			<p className={s.message}>Start with searching a GitHub user</p>
 		</div>
