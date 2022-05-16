@@ -76,6 +76,10 @@
 		flex-direction: column;
 		gap: 0;
 	}
+	.avatar {
+		max-width: 200px;
+		max-height: 200px;
+	}
 	.about {
 		display: flex;
 		align-items: flex-start;

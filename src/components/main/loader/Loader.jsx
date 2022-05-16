@@ -7,6 +7,6 @@ const Loader = () => {
 			<div className={s.loader}></div>
 		</div>
 	)
-}
+};
 
 export { Loader };

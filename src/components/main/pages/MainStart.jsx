@@ -13,6 +13,6 @@ const MainStart = () => {
 			<p className={s.message}>Start with searching a GitHub user</p>
 		</div>
 	)
-}
+};
 
 export { MainStart };

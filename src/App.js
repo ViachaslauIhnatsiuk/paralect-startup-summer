@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FetchContext } from './context';
 import s from './App.module.css';
 import { Header } from './components/header/Header';
 import { Main } from './components/main/Main';
@@ -9,29 +10,34 @@ const App = () => {
 	const [user, setUser] = useState('');
 	const [repos, setRepos] = useState([]);
 	const [loader, setLoader] = useState(false);
+	const [userName, setUserName] = useState('');
+	const [currentPage, setCurrentPage] = useState(1);
 
-	if (user === '') {
-		return (
+	return (
+		<FetchContext.Provider
+			value={{
+				user,
+				repos,
+				loader,
+				userName,
+				currentPage,
+				setUser,
+				setRepos,
+				setLoader,
+				setUserName,
+				setCurrentPage,
+			}}>
 			<div className={s.wrapper}>
-				<Header setUser={setUser} setRepos={setRepos} repos={repos} setLoader={setLoader} />
-				<MainStart />
+				<Header />
+				{user === ''
+					? <MainStart />
+					: user.message
+						? <MainNotFound />
+						: <Main />
+				}
 			</div>
-		);
-	} else if (user.message) {
-		return (
-			<div className={s.wrapper}>
-				<Header setUser={setUser} setRepos={setRepos} repos={repos} setLoader={setLoader} />
-				<MainNotFound />
-			</div>
-		);
-	} else {
-		return (
-			<div className={s.wrapper}>
-				<Header setUser={setUser} setRepos={setRepos} repos={repos} setLoader={setLoader} />
-				<Main user={user} repos={repos} loader={loader} />
-			</div>
-		);
-	}
-}
+		</FetchContext.Provider>
+	)
+};
 
 export { App };

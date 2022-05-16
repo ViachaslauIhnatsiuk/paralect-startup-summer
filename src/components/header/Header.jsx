@@ -1,32 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { FetchContext } from '../../context.js';
+import { useFetch } from '../../hooks/useFetch';
 import s from './Header.module.css';
 import logo from '../../assets/icons/logo.svg';
 
-const Header = ({ setUser, setRepos, setLoader }) => {
-	const [value, setValue] = useState('');
-
-	const fetchParams = {
-		method: "GET",
-		headers: {
-			Authorization: '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',
-		}
-	};
-
-	const search = (e) => {
-		if (e.key === 'Enter') {
-			setLoader(true);
-			fetch(`https://api.github.com/users/${value}`, fetchParams)
-				.then(response => response.json())
-				.then(response => setUser(response))
-				// .then(() => setLoader(false))
-				.catch(error => console.log(error))
-			fetch(`https://api.github.com/users/${value}/repos?per_page=100&page=1`, fetchParams)
-				.then(response => response.json())
-				.then(response => setRepos([...response]))
-				.then(() => setLoader(false))
-				.catch(error => console.log(error))
-		}
-	};
+const Header = () => {
+	const { userName, setUserName } = useContext(FetchContext);
+	const { searchUser } = useFetch();
 
 	return (
 		<div className={s.header}>
@@ -37,11 +17,12 @@ const Header = ({ setUser, setRepos, setLoader }) => {
 			/>
 			<input
 				type="text"
-				placeholder='Enter GitHub username'
-				value={value}
+				placeholder="Enter GitHub username"
+				value={userName}
 				className={s.input}
-				onChange={(e) => setValue(e.target.value)}
-				onKeyDown={search} />
+				onChange={(e) => setUserName(e.target.value)}
+				onKeyDown={searchUser}
+			/>
 		</div>
 	)
 };

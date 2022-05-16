@@ -13,6 +13,6 @@ const MainNotFound = () => {
 			<p className={s.message}>User not found</p>
 		</div>
 	)
-}
+};
 
 export { MainNotFound };
