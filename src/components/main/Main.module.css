@@ -1,5 +1,5 @@
 .main {
-	min-height: 694px;
+	height: 694px;
 	display: flex;
 	justify-content: space-between;
 	padding: 28px 56px;
