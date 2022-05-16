@@ -42,3 +42,14 @@
 .next {
 	cursor: pointer;
 }
+
+@media (max-width: 425px) {
+	.pagination {
+		flex-direction: column-reverse;
+		align-self: center;
+		margin-top: 20px;
+	}
+	.main {
+		margin-bottom: 10px;
+	}
+}

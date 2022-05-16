@@ -21,3 +21,24 @@
 	border-radius: 6px;
 	background: url('../../assets/icons/search.svg') 19px center no-repeat #fff;
 }
+
+@media (max-width: 600px) {
+	.header {
+		height: 60px;
+		padding: 14px 20px;
+	}
+	.logo {
+		width: 30px;
+		height: 30px;
+		margin-right: 15px;
+	}
+	.input {
+		width: 100%;
+		font-size: 13px;
+		padding: 8px 14px 8px 35px;
+		border: transparent;
+		outline: none;
+		border-radius: 6px;
+		background: url('../../assets/icons/search.svg') 10px center no-repeat #fff;
+	}
+}

@@ -5,6 +5,10 @@
 	font-family: 'Inter';
 }
 
+body {
+	padding: 0 10px;
+}
+
 a,
 a:visited,
 a:hover {
@@ -16,6 +20,8 @@ ul li {
 }
 
 .wrapper {
+	display: flex;
+	flex-direction: column;
 	max-width: 1366px;
 	margin: 0 auto;
 }

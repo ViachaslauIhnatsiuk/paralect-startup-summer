@@ -10,3 +10,19 @@
 	padding: 2px 0 0 2px;
 	margin-bottom: 29px;
 }
+
+@media (max-width: 767.98px) {
+	.title {
+		font-size: 26px;
+	}
+}
+
+@media (max-width: 600px) {
+	.repositories {
+		padding: 0 20px;
+	}
+	.title {
+		padding: 0;
+		font-size: 22px;
+	}
+}

@@ -4,8 +4,8 @@
 }
 
 .avatar {
-	width: 280px;
-	height: 280px;
+	max-width: 280px;
+	max-height: 280px;
 	border: 1px solid transparent;
 	border-radius: 50%;
 	margin-bottom: 25px;
@@ -18,7 +18,7 @@
 }
 
 .nickname {
-	display: block;
+	display: inline-block;
 	font-size: 18px;
 	font-weight: 400;
 	color: #0064EB;
@@ -44,4 +44,53 @@
 
 .following {
 	background: url('../../../assets/icons/following.svg') 0 center no-repeat;
+}
+
+@media (max-width: 1023.98px) {
+	.avatar {
+		max-width: 250px;
+		max-height: 250px;
+	}
+	.follow {
+		display: block;
+	}
+	.followers {
+		margin-bottom: 10px;
+	}
+	.following {
+		background: url('../../../assets/icons/following.svg') -3px center no-repeat;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.user {
+		display: flex;
+		justify-content: center;
+		column-gap: 50px;
+		align-items: center;
+	}
+}
+
+@media (max-width: 600px) {
+	.user {
+		flex-direction: column;
+		gap: 0;
+	}
+	.about {
+		display: flex;
+		align-items: flex-start;
+		column-gap: 40px;
+	}
+	.username {
+		line-height: 100%;
+	}
+	.nickname {
+		margin-bottom: 20px;
+	}
+}
+
+@media (max-width: 425px) {
+	.about {
+		display: block;
+	}
 }
