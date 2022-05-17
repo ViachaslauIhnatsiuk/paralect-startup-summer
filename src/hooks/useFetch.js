@@ -1,32 +1,25 @@
 import { useContext } from 'react';
 import { FetchContext } from '../context.js';
+import axios from 'axios';
 
 const useFetch = () => {
 	const { userName, setUser, setRepos, setLoader } = useContext(FetchContext);
-
-	const fetchParams = {
-		method: 'GET',
-		headers: {
-			Authorization: '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',
-		}
-	};
+	const URL = `https://api.github.com/users/${userName}`;
 
 	return {
-		searchUser(e) {
+		async searchUser(e) {
 			let reposList = [];
 			if (e.key === 'Enter') {
 				setLoader(true);
-				fetch(`https://api.github.com/users/${userName}`, fetchParams)
-					.then(response => response.json())
-					.then(response => setUser(response))
+				axios.get(`${URL}`)
+					.then(response => setUser(response.data))
 					.catch(error => console.log(error));
-				for (let i = 1; i < 4; i++) {
-					fetch(`https://api.github.com/users/${userName}/repos?per_page=100&page=${i}`, fetchParams)
-						.then(response => response.json())
-						.then(response => reposList.push(...response))
-						.then(() => setLoader(false))
+				for (let i = 1; reposList.length % 100 === 0; i++) {
+					await axios.get(`${URL}/repos?per_page=100&page=${i}`)
+						.then(response => reposList.push(...response.data))
 						.catch(error => console.log(error));
 				}
+				setLoader(false);
 			}
 			setRepos(reposList);
 		}
