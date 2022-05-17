@@ -7,12 +7,12 @@ import { Pagination } from './pagination/Pagination';
 
 const Repositories = () => {
 	const { repos, currentPage } = useContext(FetchContext);
-	const currentPageRepos = repos.slice(currentPage * 4 - 4, 4 * currentPage)
+	const currentPageRepos = repos.slice(currentPage * 4 - 4, 4 * currentPage);
 
 	if (repos.length) {
 		return (
 			<div className={s.repositories}>
-				<h2 className={s.title}>Repositories {repos.length}</h2>
+				<h2 className={s.title}>Repositories ({repos.length})</h2>
 				{currentPageRepos.map((repo, index) => {
 					return (
 						<Repository
