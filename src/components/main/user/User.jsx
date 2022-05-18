@@ -1,13 +1,9 @@
 import React from 'react';
+import { useFollow } from '../../../hooks/useFollow';
 import s from './User.module.css';
 
 const User = ({ user }) => {
-	const followersRender = user.followers < 1000
-		? user.followers
-		: (user.followers / 1000).toFixed(1) + 'k';
-	const followingRender = user.following < 1000
-		? user.following
-		: (user.following / 1000).toFixed(1) + 'k';
+	const { followersRender, followingRender } = useFollow();
 
 	return (
 		<div className={s.user}>
@@ -28,8 +24,8 @@ const User = ({ user }) => {
 					</a>
 				</div>
 				<div className={s.follow}>
-					<div className={s.followers}>{followersRender} followers</div>
-					<div className={s.following}>{followingRender} following</div>
+					<div className={s.followers}>{followersRender()} followers</div>
+					<div className={s.following}>{followingRender()} following</div>
 				</div>
 			</div>
 		</div>
