@@ -21,7 +21,7 @@ const Header = () => {
 				value={userName}
 				className={s.input}
 				onChange={(e) => setUserName(e.target.value)}
-				onKeyDown={searchUser}
+				onKeyDown={(e) => e.key === 'Enter' ? searchUser() : null}
 			/>
 		</div>
 	)
