@@ -7,6 +7,9 @@ const usePagination = () => {
 
 	const pagesAmount = Math.ceil(repos.length / 4);
 	const pagesInterval = `${(currentPage * 4 - 3)} - ${currentPage * 4 < repos.length ? currentPage * 4 : repos.length} of ${repos.length} items`;
+	const dots = '...';
+	const leftDots = '... ';
+	const rightDots = ' ...';
 	let pages = [];
 
 	for (let i = 1; i <= pagesAmount;) {
@@ -14,10 +17,6 @@ const usePagination = () => {
 	}
 
 	useEffect(() => {
-		const dots = '...';
-		const leftDots = '... ';
-		const rightDots = ' ...';
-
 		if (pagesAmount < 5) {
 			pages = [...pages];
 		} else if (currentPage >= 1 && currentPage <= 2) {
@@ -37,7 +36,7 @@ const usePagination = () => {
 		}
 
 		setPageNumbers(pages)
-	}, [currentPage, repos]);
+	}, [currentPage]);
 
 	return {
 		pagesAmount,

@@ -12,7 +12,7 @@ const Pagination = () => {
 		pagesInterval,
 		pageNumbers,
 		currentPage,
-		setCurrentPage
+		setCurrentPage,
 	} = usePagination();
 
 	return (

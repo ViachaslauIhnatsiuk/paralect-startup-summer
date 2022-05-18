@@ -21,8 +21,8 @@ const useFetch = () => {
 						reposList.push(error);
 						console.log(error.message);
 					});
-				setLoader(false);
 			}
+			setLoader(false);
 			setRepos(reposList);
 		}
 	}
